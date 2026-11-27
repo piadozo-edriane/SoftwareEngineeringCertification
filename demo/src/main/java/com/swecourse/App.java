@@ -1,5 +1,6 @@
 package com.swecourse;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -11,28 +12,24 @@ public class App
     {
         Scanner scanner = new Scanner(System.in);
 
-        int rowList = scanner.nextInt();
-        int colList = scanner.nextInt();
+        List<Integer> orderNumber = new LinkedList<>();
+            orderNumber.add(3);
+            orderNumber.add(4);
+            orderNumber.add(-1);
+            orderNumber.add(1);
 
-        List<List<Integer>> gridList = new LinkedList<>();
+            int min = Integer.MAX_VALUE;
+            int minIndex = -1;
+            int i = 0;
 
-        for (int i = 0; i < rowList; i++) {
-            List<Integer> newRows = new LinkedList<>();
-            for (int j = 0; j < colList; j++) {
-                newRows.add(scanner.nextInt());
+            for (int n : orderNumber) {
+                if (n < min) {
+                    min = n;
+                    minIndex = i;
+                }
+                i++;  
             }
 
-            gridList.add(newRows);
-        }
-
-        // System.out.println(gridList.get(rowList).get(colList));
-
-
-        for (List<Integer> newRows: gridList) {
-            for (int val: newRows) {
-                System.out.print("This is the value : " + val + " ");
-            }
-            System.out.println();
-        }
+            System.out.println(minIndex);  
     }
 }
